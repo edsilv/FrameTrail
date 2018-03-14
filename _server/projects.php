@@ -99,7 +99,7 @@ function projectsNew($name, $description, $config, $userNeedsConfirmation, $defa
 		return $return;
 	}
 
-	$projects["project-increment"]++;
+	$projects["project-increment"] = (($projects["project-increment"]) ? $projects["project-increment"]++ : 1);
 	$projects["projects"][$projects["project-increment"]] = "./".$projects["project-increment"];
 	$projectsJSON = json_encode($projects, $conf["settings"]["json_flags"]);
 	$file->writeClose($projectsJSON);
